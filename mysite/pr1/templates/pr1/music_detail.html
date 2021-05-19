@@ -1,0 +1,26 @@
+{% extends 'pr1/base.html' %}
+
+{% block title %}
+    {{ music }}
+{% endblock %}
+
+{% block content %}
+
+    <h1 class="text-center mt-5" style="color:#000000">{{ music }}</h1>
+    <div class="row">
+        <div class="col-1 mt-4"></div>
+        <div class="col-5 mt-3" style="color:#000000">
+            <h3><a style="color:#000000" href="{{ music.author.get_absolute_url }}">{{ music.author }}</a></h3>
+             <img src="{{ music.poster.url }}"
+                width="200" height="200" class="passe-partout">
+            <h4>Год выхода: {{ music.year }}</h4>
+            <h4>Рейтинг: {{ music.rating }}</h4>
+        </div>
+        <div class="col-5" style="font-size:20px">
+            {% if music.text %}
+                <h4 class="text-center mt-3">Текст песни</h4>
+                <p><b>{{ music.text.read.decode }}</b></p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

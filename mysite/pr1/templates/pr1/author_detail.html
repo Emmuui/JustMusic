@@ -1,0 +1,29 @@
+{% extends 'pr1/base.html' %}
+{% load static %}
+{% block title %}
+    {{ author }}
+{% endblock %}
+
+{% block content %}
+
+    <h1 class="text-center mt-5" style="color:#000000">{{ author }}</h1>
+    <div class="content">
+        <div class="row" style="position: relative">
+            <div class="col-1 mt-4"></div>
+            <div class="col-5 mt-5" style="color:#000000">
+                 <h3>{{ music.author }}</h3>
+                 <img src="{{ author.portrait.url }}"
+                    width="200" height="200" class="passe-partout">
+            </div>
+            <div class="col-5 mt-3" style="font-size:20px">
+                {% if author.description %}
+                    <h4 class="text-center mt-3">Описание</h4>
+                    <p><b>{{ author.description.read.decode }}</b></p>
+                {% endif %}
+            </div>
+            {% for music in object_list %}
+
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

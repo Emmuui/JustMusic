@@ -1,0 +1,30 @@
+{% extends 'pr1/base.html' %}
+
+{% block title %}
+    SiteMusics
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center mt-3" style="color: #000000">
+    Песни</h1>
+
+<div class="row justify-content-center">
+    <div class="col-6">
+        <div class="row passe-partout justify-content-center">
+            {% for music in object_list %}
+            <div class="col-4 mt-3 mb-3">
+                <a href="{{ music.get_absolute_url }}">
+                    <img src="{{ music.poster.url }}"
+                        width="150" height="150" class="passe-partout">
+                </a>
+            </div>
+            <div class="col-7 mt-5">
+                <p style="font-size:20px">Автор: <a href="{{ music.get_absolute_url }}" style="color: #000000">{{ music.author }}</a></p>
+            </div>
+            <div class="col-1"></div>
+            {% endfor %}
+        </div>
+    </div>
+  </div>
+
+{% endblock %}
